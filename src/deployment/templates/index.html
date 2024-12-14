@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>CIFAR-10 Classification</title>
+</head>
+<body>
+    <div class="container">
+        <h1>CIFAR-10 Image Classifier</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload an image:</label>
+            <input type="file" name="file" id="file" required>
+            <button type="submit">Classify</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>Prediction: {{ prediction }}</h2>
+                <p>Confidence: {{ confidence|round(2) }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
